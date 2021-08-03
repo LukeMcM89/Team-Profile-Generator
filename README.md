@@ -1,2 +1,8 @@
 # Team-Profile-Generator
-An terminal command line program that generates a dynamic professional team roster based on user selection and input. 
+
+A command-line application that generates a dynamic roster for a professional software engineering team based on user selection and input. The input data results in a HTML generated webpage that displays summaries for each employee.
+
+
+Video tutorial link:
+
+Link to repository:
