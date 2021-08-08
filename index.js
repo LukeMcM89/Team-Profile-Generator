@@ -19,38 +19,73 @@ const Manager = require('./lib/manager');
 
 const questionprompt = () =>
 return inquirer.prompt([
-    {
-        type: "input",
-        message:"Please enter your manager's name/",
-        name:"managerName"
+        {
+                type: "input",
+                message: "Please enter your manager's name.",
+                name: "managerName"
 
-},
-{
-        type: "input",
-        message:"Please enter your manager's office ID",
-        name: "managerofficeID"
-},
-{
-        type: "input",
-        message:"Please enter your manager's email address",
-        name: "manageremailaddress"
-}
-{
-        type:"input"
-        messageL: "Please enter your manager's office number",
-        name: "managerofficer"
-}
-//Luke remember to use this code from your last HW and modify!!!!!!
-{
-        type: "list",
-        message: "Select and then Enter the Open-Source license variant for your project.",
-        name: "License",
-        choices: ['MIT', 'Apache 2.0', 'GPL 3.0', 'Mozilla Public License2.0', 'N/A'],
-    },
+        },
+        {
+                type: "input",
+                message: "Please enter your manager's office ID",
+                name: "managerofficeID"
+        },
+        {
+                type: "input",
+                message: "Please enter your manager's email address",
+                name: "manageremailaddress"
+        },
+        {
+                type: "input",
+                message: "Please enter your manager's office number",
+                name: "manageroffice"
+        },
+        {
+                type: "list",
+                message: "Please select a team member to add to your roster",
+                name: "addtoroster",
+                choices: ['Employee', 'Engineer', 'Intner', 'Finish Roster Additions'],
+        },
 ])
-// Luke remember to re-route this from last HW
-//fs.writeFile(fileName, data, (error) => {
-       // return error ? console.error(error) : console.log("ReadMe Succesfully Generated!");
-      // });
-      // }
-       
+
+.then(answers => {
+fs.writeFileSync(htmlgenerated,"");
+}
+);
+
+function addEmployee() {
+
+const questionprompt = () =>
+return inquirer.prompt([
+        {
+                type: "input",
+                message: "Please enter your employee's name.",
+                name: "managerName"
+
+        },
+        {
+                type: "input",
+                message: "Please enter your employee's office ID",
+                name: "managerofficeID"
+        },
+                type: "input"
+                message:
+                name:
+}
+{
+                typeg: "input"
+                meessage:
+                name:
+},
+                type: "input"
+                message:
+                name:
+
+
+
+
+}
+
+
+
+
