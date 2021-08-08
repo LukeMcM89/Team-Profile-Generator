@@ -21,28 +21,28 @@ const managerprompt = () => {
 return inquirer.prompt([
         {
                 type: "input",
-                message: "Please enter your manager's name.",
-                name: "managerName"
+                message: "Please enter your Manager's name.",
+                name: "managername"
 
         },
         {
                 type: "input",
-                message: "Please enter your manager's office ID",
+                message: "Please enter your Manager's office ID.",
                 name: "managerofficeID"
         },
         {
                 type: "input",
-                message: "Please enter your manager's email address",
+                message: "Please enter your Manager's email address.",
                 name: "manageremailaddress"
         },
         {
                 type: "input",
-                message: "Please enter your manager's office number",
+                message: "Please enter your Manager's office number.",
                 name: "manageroffice"
         },
         {
                 type: "list",
-                message: "Please select a team member to add to your roster",
+                message: "Please select a team member to add to your roster.",
                 name: "addtoroster",
                 choices: ['Employee', 'Engineer', 'Intern', 'Finish Roster Additions'],
         },
@@ -59,27 +59,54 @@ const engineerprompt = () => {
 return inquirer.prompt([
         {
                 type: "input",
-                message: "Please enter your engineer's name.",
-                name: "engineerName"
+                message: "Please enter your Engineer's name.",
+                name: "engineername"
 
         },
         {
                 type: "input",
-                message: "Please enter your engineers office ID",
+                message: "Please enter your Engineer's office ID.",
                 name: "engineerofficeID"
         },
+        {
                 type: "input",
-                message: "PleSe enter your engineer's email address";
+                message: "Please enter your Engineer's email address.",
                 name: "engineeremailaddress"
-}
-{
-                type: "input"
-                meessage: "please enter your engineer's github username",
+        },
+        {
+                type: "input",
+                message: "please enter your Engineer's GitHub username.",
                 name:"engineergithub"
-},
+        },
+
+])
+
+function addEmployee() {
+
+const internprompt = () => {
+        return inquirer.prompt([
+        {
+                type: "input",
+                message: "Please enter your Intern's name.",
+                name: "internname"
+        
+        },
+        {
+                type: "input",
+                message: "Please enter your Intern's office ID.",
+                name: "internofficeID"
+        },
+        {
+                type: "input",
+                message: "Please enter your Intern's email address.",
+                name: "internemailaddress"
+        },
+        {
+                type: "input",
+                message: "Please enter the school that your Intern attends.",
+                name:"internschool"
+        },
+        
+])
 
 }
-
-
-
-
