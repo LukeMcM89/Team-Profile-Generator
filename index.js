@@ -17,7 +17,7 @@ const Manager = require('./lib/manager');
 //WHEN I decide to finish building my team
 //THEN I exit the application, and the HTML is generated
 
-const questionprompt = () =>
+const managerprompt = () => {
 return inquirer.prompt([
         {
                 type: "input",
@@ -44,7 +44,7 @@ return inquirer.prompt([
                 type: "list",
                 message: "Please select a team member to add to your roster",
                 name: "addtoroster",
-                choices: ['Employee', 'Engineer', 'Intner', 'Finish Roster Additions'],
+                choices: ['Employee', 'Engineer', 'Intern', 'Finish Roster Additions'],
         },
 ])
 
@@ -55,34 +55,28 @@ fs.writeFileSync(htmlgenerated,"");
 
 function addEmployee() {
 
-const questionprompt = () =>
+const engineerprompt = () => {
 return inquirer.prompt([
         {
                 type: "input",
-                message: "Please enter your employee's name.",
-                name: "managerName"
+                message: "Please enter your engineer's name.",
+                name: "engineerName"
 
         },
         {
                 type: "input",
-                message: "Please enter your employee's office ID",
-                name: "managerofficeID"
+                message: "Please enter your engineers office ID",
+                name: "engineerofficeID"
         },
-                type: "input"
-                message:
-                name:
+                type: "input",
+                message: "PleSe enter your engineer's email address";
+                name: "engineeremailaddress"
 }
 {
-                typeg: "input"
-                meessage:
-                name:
-},
                 type: "input"
-                message:
-                name:
-
-
-
+                meessage: "please enter your engineer's github username",
+                name:"engineergithub"
+},
 
 }
 
