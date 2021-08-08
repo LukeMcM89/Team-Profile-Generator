@@ -22,28 +22,28 @@ return inquirer.prompt([
         {
                 type: "input",
                 message: "Please enter your Manager's name.",
-                name: "managername"
+                name: "managerName"
 
         },
         {
                 type: "input",
                 message: "Please enter your Manager's office ID.",
-                name: "managerofficeID"
+                name: "managerId"
         },
         {
                 type: "input",
                 message: "Please enter your Manager's email address.",
-                name: "manageremailaddress"
+                name: "managerEmail"
         },
         {
                 type: "input",
                 message: "Please enter your Manager's office number.",
-                name: "manageroffice"
+                name: "managerOffice"
         },
         {
                 type: "list",
                 message: "Please select a team member to add to your roster.",
-                name: "addtoroster",
+                name: "addRoster",
                 choices: ['Employee', 'Engineer', 'Intern', 'Finish Roster Additions'],
         },
 ])
@@ -60,23 +60,29 @@ return inquirer.prompt([
         {
                 type: "input",
                 message: "Please enter your Engineer's name.",
-                name: "engineername"
+                name: "engineerName"
 
         },
         {
                 type: "input",
                 message: "Please enter your Engineer's office ID.",
-                name: "engineerofficeID"
+                name: "engineerId"
         },
         {
                 type: "input",
                 message: "Please enter your Engineer's email address.",
-                name: "engineeremailaddress"
+                name: "engineerEmail"
         },
         {
                 type: "input",
                 message: "please enter your Engineer's GitHub username.",
-                name:"engineergithub"
+                name:"engineerGithub"
+        },
+        {
+                type: "list",
+                message: "Please select a team member to add to your roster.",
+                name: "addRoster",
+                choices: ['Employee', 'Engineer', 'Intern', 'Finish Roster Additions'],
         },
 
 ])
@@ -88,25 +94,38 @@ const internprompt = () => {
         {
                 type: "input",
                 message: "Please enter your Intern's name.",
-                name: "internname"
+                name: "internName"
         
         },
         {
                 type: "input",
                 message: "Please enter your Intern's office ID.",
-                name: "internofficeID"
+                name: "internId"
         },
         {
                 type: "input",
                 message: "Please enter your Intern's email address.",
-                name: "internemailaddress"
+                name: "internEmail"
         },
         {
                 type: "input",
                 message: "Please enter the school that your Intern attends.",
-                name:"internschool"
+                name:"internSchool"
+        },
+        {
+                type: "list",
+                message: "Please select a team member to add to your roster.",
+                name: "addRoster",
+                choices: ['Employee', 'Engineer', 'Intern', 'Finish Roster Additions'],
         },
         
 ])
 
 }
+
+function init() {
+        managerprompt, engineerprompt, internprompt ();
+    };
+
+
+    init(); 
