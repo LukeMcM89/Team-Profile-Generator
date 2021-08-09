@@ -3,25 +3,16 @@ const fs = require('fs');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 const Manager = require('./lib/manager');
-const htmlGenerator = require('./dist/TeamRoster')
+const htmlGenerator = require('./lib/htmlrender')
 
-const path =
+//Output File
+const path = "'./dist/TeamRoster'"
 
-//WHEN I start the application
-//THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
-//WHEN I enter the team manager’s name, employee ID, email address, and office number
-//THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
-//WHEN I select the engineer option
-//THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
-//WHEN I select the intern option
-//THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
-//WHEN I decide to finish building my team
-//THEN I exit the application, and the HTML is generated
-
+//Data
 const team = [];
 const employeeQuestions = [
-        {message: "What is the employee's name?", name: "Name"},
-        {message: "What is the employee's email?", name: "Email"},
+        {message: "What is the employee's name?", name: "name"},
+        {message: "What is the employee's email?", name: "email"},
         {message: "What is the employee's ID?", name: "id"}
 ];
 
@@ -32,11 +23,12 @@ const internQuestion = [...employeeQuestions, {message: "Where does the intern's
 
 init ();
 
+//Welcome the User
 function init() {
         console.log("Welcome! Build your Software Engineer Team Roster.");
         mainMenu();
 }
-
+//Offer Main Menu
 function mainMenu(){
         inquirer.prompt({
                 message: "What would you like to do?",
@@ -68,7 +60,7 @@ function addEngineer(){
         });
 }
 function addIntern(){
-        inquirer.prompt(manageerQuestions)
+        inquirer.prompt(managerQuestions)
         .then(response => {
                 const intern = new Intern(response.name, response.id, response.email, response.school);
                 team.push(intern);
@@ -76,8 +68,9 @@ function addIntern(){
         })
 }
 
-function finishBuildinngRoster() {
+function finishBuildingRoster() {
         const html = htmlGenerator(team);
-        fs.writeFileSync(path, html)
+        fs.writeFileSync(path, html);
+        console.log("The Roster has been executed and generated! It is located in the dist folder. Thank you!")
 }
                         
