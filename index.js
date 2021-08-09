@@ -1,9 +1,11 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const htmlgenerated = ('./dist/TeamRoster');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 const Manager = require('./lib/manager');
+const htmlGenerator = require('./dist/TeamRoster')
+
+const path =
 
 //WHEN I start the application
 //THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
@@ -23,9 +25,9 @@ const employeeQuestions = [
         {message: "What is the employee's ID?", name: "id"}
 ];
 
-const managerQuestion = [...employeeQuestions {message: "What is the employee's office number?", name: "officenumber"}];
-const engineerQuestion = [...employeeQuestons {messageL: "What is the employee's GitHub username?", name: "github"}];
-const internQuestion = [...employeeQuestions {message: "Where does the intern's attend school?", name: "school"}];
+const managerQuestion = [...employeeQuestions, {message: "What is the employee's office number?", name: "officenumber"}];
+const engineerQuestion = [...employeeQuestions, {message: "What is the employee's GitHub username?", name: "github"}];
+const internQuestion = [...employeeQuestions, {message: "Where does the intern's attend school?", name: "school"}];
 
 
 init ();
@@ -51,49 +53,31 @@ function mainMenu(){
 
 function addManager(){
         inquirer.prompt(managerQuestions)
+        .then(response => {
+                const manager = new Manager(response.name, response.id, response.email, response.officeNumber);
+                team.push(manager);
+                mainMenu();
+        });
 }
-function addEnginerr(){}
-function addIntern(){}
+function addEngineer(){
+        inquirer.prompt(managerQuestions)
+        then(response => {
+                const engineer = new Engineer(response.name, response.id, response.email, response.github);
+                team.push(engineer);
+                mainMenu();
+        });
+}
+function addIntern(){
+        inquirer.prompt(manageerQuestions)
+        .then(response => {
+                const intern = new Intern(response.name, response.id, response.email, response.school);
+                team.push(intern);
+                mainMenu();
+        })
+}
 
-               
-
-                        const internprompt = () => {
-                                return inquirer.prompt([
-                                        {
-                                                type: "input",
-                                                message: "Please enter your Intern's name.",
-                                                name: "internName"
-
-                                        },
-                                        {
-                                                type: "input",
-                                                message: "Please enter your Intern's office ID.",
-                                                name: "internId"
-                                        },
-                                        {
-                                                type: "input",
-                                                message: "Please enter your Intern's email address.",
-                                                name: "internEmail"
-                                        },
-                                        {
-                                                type: "input",
-                                                message: "Please enter the school that your Intern attends.",
-                                                name: "internSchool"
-                                        },
-                                        {
-                                                type: "list",
-                                                message: "Please select a team member to add to your roster.",
-                                                name: "addRoster",
-                                                choices: ['Employee', 'Engineer', 'Intern', 'Finish Roster Additions'],
-                                        },
-
-                                ])
-
-                        }
-
-                        function init() {
-                                managerprompt, engineerprompt, internprompt();
-                        };
-
-
-                        init();
+function finishBuildinngRoster() {
+        const html = htmlGenerator(team);
+        fs.writeFileSync(path, html)
+}
+                        
