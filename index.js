@@ -18,14 +18,14 @@ const Manager = require('./lib/manager');
 
 const team = [];
 const employeeQuestions = [
-        {message: "What is the employee's name?" name: "Name"},
-        {message: "What is the employee's email?" name: "Email"},
-        {message: "What is the employee's ID?" name: "id"}
+        {message: "What is the employee's name?", name: "Name"},
+        {message: "What is the employee's email?", name: "Email"},
+        {message: "What is the employee's ID?", name: "id"}
 ];
 
-const managerQuestion =
-const engineerQuestion =
-const internQuestion =
+const managerQuestion = [...employeeQuestions {message: "What is the employee's office number?", name: "officenumber"}];
+const engineerQuestion = [...employeeQuestons {messageL: "What is the employee's GitHub username?", name: "github"}];
+const internQuestion = [...employeeQuestions {message: "Where does the intern's attend school?", name: "school"}];
 
 
 init ();
@@ -36,17 +36,26 @@ function init() {
 }
 
 function mainMenu(){
-        inquieer.prompt(){
-                message:
-                name:
-                type:
-                choices: 
-        }
+        inquirer.prompt({
+                message: "What would you like to do?",
+                name: "action",
+                type: "list",
+                choices: ["Add Manager", "Add Engineer", "Add Intern", "Finish Building Roster"]
+        }).then(response => {
+                if (response.action === "Add Manager") return addManager();
+                if (response.action === "Add Engineer") return addEngineer();
+                if (response.action === "Add Intern") return addIntern();
+                if (response.action === "Finish Building Roster") return finishBuildingRoster();
+        });
 }
 
+function addManager(){
+        inquirer.prompt(managerQuestions)
+}
+function addEnginerr(){}
+function addIntern(){}
 
-
-                function addEmployee() {
+               
 
                         const internprompt = () => {
                                 return inquirer.prompt([
