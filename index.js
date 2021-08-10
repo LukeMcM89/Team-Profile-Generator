@@ -3,9 +3,10 @@ const fs = require('fs');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 const Manager = require('./lib/manager');
+const { createPromptModule } = require('inquirer');
 
 //Output File
-const path = "'./dist/TeamRoster'"
+const path = './dist/TeamRoster.html'
 
 //Data
 const team = [];
@@ -15,7 +16,7 @@ const employeeQuestions = [
         {message: "What is the employee's ID?", name: "id"}
 ];
 
-const managerQuestion = [...employeeQuestions, {message: "What is the employee's office number?", name: "officenumber"}];
+const managerQuestion = [...employeeQuestions, {message: "What is the employee's office number?", name: "officeNumber"}];
 const engineerQuestion = [...employeeQuestions, {message: "What is the employee's GitHub username?", name: "github"}];
 const internQuestion = [...employeeQuestions, {message: "Where does the intern's attend school?", name: "school"}];
 
@@ -73,7 +74,31 @@ function finishBuildingRoster() {
         console.log("The Roster has been executed and generated! It is located in the dist folder. Thank you!")
 }
 
+function createCard (employee) {
+        if (employee.getRole === "Manager") {
+                const exclusive = "officeNumber;"+employee.getOfficeNumber;
+        }    
+        const card = `<div class="columns mt-5 is-8 is-variable is-centered">
+        <div class="column is-4-tablet is-3-desktop">
+            <div class="card">
+                <div class="card-content">
+                    <p class="title is-size-5">Manager</p>
+                    <div class="content">
+                        <ol type="1">
+                            <li>Name:${employee.getName()}</li>
+                            <li>ID:${employee.getId()}</li>
+                            <li>Email:${employee.getEmail()}</li>
+                            <li>${exclusive}</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>`
+            return card;
+}
+
 function htmlGenerator (team) {
+        const cards = team.map(employee => createCard(employee)).join('');
+
         const code = `<!DOCTYPE html>
         <html lang="en">
         
@@ -86,58 +111,19 @@ function htmlGenerator (team) {
         
             <title>Software Engineer Team Profile Generator</title>
         
-        
-        
         </head>
         
         <section class="section is-hidden-mobile">
             <div class="container">
                 <h3 class="title has-text-centered is-size-4">Software Engineer Team Roster</h3>
-                <div class="columns mt-5 is-8 is-variable is-centered">
-                    <div class="column is-4-tablet is-3-desktop">
-                        <div class="card">
-                            <div class="card-content">
-                                <p class="title is-size-5">Manager</p>
-                                <div class="content">
-                                    <ol type="1">
-                                        <li>Name:</li>
-                                        <li>ID:</li>
-                                        <li>Email:</li>
-                                        <li>Office Number:</li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="div.column is-4-tablet is-3-desktop">
-                            <div class="card">
-                                <div class="card-content">
-                                    <p class="title is-size-5">Engineer</p>
-                                    <div class="content">
-                                        <ol type="1">
-                                            <li>Name:</li>
-                                            <li>ID:</li>
-                                            <li>Email:</li>
-                                            <li>GitHub:</li>
-                                        </ol>
-                                    </div>
-                                </div>
-                                <div class="div.column is-4-tablet is-3-desktop">
-                                    <div class="card">
-                                        <div class="card-content">
-                                            <p class="title is-size-5">Intern</p>
-                                            <div class="content">
-                                                <ol type="1">
-                                                    <li>Name:</li>
-                                                    <li>ID:</li>
-                                                    <li>Email:</li>
-                                                    <li>School:</li>
-                                                </ol>
-                                            </div>
-                                        </div>
+                    ${cards}         
+                             
         </section>
         
         </body>
         
         </html>`
+        return code;
+        
 }
                         
