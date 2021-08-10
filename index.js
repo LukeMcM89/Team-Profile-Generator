@@ -3,7 +3,6 @@ const fs = require('fs');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 const Manager = require('./lib/manager');
-const htmlGenerator = require('./lib/htmlrender')
 
 //Output File
 const path = "'./dist/TeamRoster'"
@@ -52,15 +51,15 @@ function addManager(){
         });
 }
 function addEngineer(){
-        inquirer.prompt(engineerQuestions)
-        then(response => {
+        inquirer.prompt(engineerQuestion)
+        .then(response => {
                 const engineer = new Engineer(response.name, response.id, response.email, response.github);
                 team.push(engineer);
                 mainMenu();
         });
 }
 function addIntern(){
-        inquirer.prompt(internQuestions)
+        inquirer.prompt(internQuestion)
         .then(response => {
                 const intern = new Intern(response.name, response.id, response.email, response.school);
                 team.push(intern);
@@ -72,5 +71,73 @@ function finishBuildingRoster() {
         const html = htmlGenerator(team);
         fs.writeFileSync(path, html);
         console.log("The Roster has been executed and generated! It is located in the dist folder. Thank you!")
+}
+
+function htmlGenerator (team) {
+        const code = `<!DOCTYPE html>
+        <html lang="en">
+        
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />
+        
+            <link rel="stylesheet" href="./style.css">
+        
+            <title>Software Engineer Team Profile Generator</title>
+        
+        
+        
+        </head>
+        
+        <section class="section is-hidden-mobile">
+            <div class="container">
+                <h3 class="title has-text-centered is-size-4">Software Engineer Team Roster</h3>
+                <div class="columns mt-5 is-8 is-variable is-centered">
+                    <div class="column is-4-tablet is-3-desktop">
+                        <div class="card">
+                            <div class="card-content">
+                                <p class="title is-size-5">Manager</p>
+                                <div class="content">
+                                    <ol type="1">
+                                        <li>Name:</li>
+                                        <li>ID:</li>
+                                        <li>Email:</li>
+                                        <li>Office Number:</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="div.column is-4-tablet is-3-desktop">
+                            <div class="card">
+                                <div class="card-content">
+                                    <p class="title is-size-5">Engineer</p>
+                                    <div class="content">
+                                        <ol type="1">
+                                            <li>Name:</li>
+                                            <li>ID:</li>
+                                            <li>Email:</li>
+                                            <li>GitHub:</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                                <div class="div.column is-4-tablet is-3-desktop">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <p class="title is-size-5">Intern</p>
+                                            <div class="content">
+                                                <ol type="1">
+                                                    <li>Name:</li>
+                                                    <li>ID:</li>
+                                                    <li>Email:</li>
+                                                    <li>School:</li>
+                                                </ol>
+                                            </div>
+                                        </div>
+        </section>
+        
+        </body>
+        
+        </html>`
 }
                         
