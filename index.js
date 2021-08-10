@@ -44,7 +44,7 @@ function mainMenu(){
 }
 
 function addManager(){
-        inquirer.prompt(managerQuestions)
+        inquirer.prompt(managerQuestion)
         .then(response => {
                 const manager = new Manager(response.name, response.id, response.email, response.officeNumber);
                 team.push(manager);
@@ -52,7 +52,7 @@ function addManager(){
         });
 }
 function addEngineer(){
-        inquirer.prompt(managerQuestions)
+        inquirer.prompt(engineerQuestions)
         then(response => {
                 const engineer = new Engineer(response.name, response.id, response.email, response.github);
                 team.push(engineer);
@@ -60,7 +60,7 @@ function addEngineer(){
         });
 }
 function addIntern(){
-        inquirer.prompt(managerQuestions)
+        inquirer.prompt(internQuestions)
         .then(response => {
                 const intern = new Intern(response.name, response.id, response.email, response.school);
                 team.push(intern);
