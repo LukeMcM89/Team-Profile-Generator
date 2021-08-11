@@ -65,19 +65,30 @@ function addIntern(){
                 const intern = new Intern(response.name, response.id, response.email, response.school);
                 team.push(intern);
                 mainMenu();
-        })
+        });
 }
 
 function finishBuildingRoster() {
         const html = htmlGenerator(team);
         fs.writeFileSync(path, html);
-        console.log("The Roster has been executed and generated! It is located in the dist folder. Thank you!")
+        console.log("The Roster has been executed and generated! It is located in the dist folder. Thank you!");
 }
 
 function createCard (employee) {
-        if (employee.getRole === "Manager") {
-                const exclusive = "officeNumber;"+employee.getOfficeNumber;
-        }    
+        let exclusive = "";
+        console.log (employee.getRole());
+        if (employee.getRole() === "Manager") {
+                console.log ("test2");
+                exclusive = "officeNumber;"+employee.getOfficeNumber();
+        }   
+        else if (employee.getRole() === "Engineer") {
+                console.log ("test3");
+                exclusive = "github;"+employee.getGithub();
+        }  
+        else if (employee.getRole() === "Intern") {
+                console.log ("test4");
+                exclusive = "school;"+employee.getSchool();
+        }   
         const card = `<div class="columns mt-5 is-8 is-variable is-centered">
         <div class="column is-4-tablet is-3-desktop">
             <div class="card">
