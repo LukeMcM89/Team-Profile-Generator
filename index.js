@@ -74,6 +74,7 @@ function finishBuildingRoster() {
         console.log("The Roster has been executed and generated! It is located in the dist folder. Thank you!");
 }
 
+//creates the individualized cards
 function createCard (employee) {
         let exclusive = "";
         console.log (employee.getRole());
@@ -106,7 +107,7 @@ function createCard (employee) {
             </div>`
             return card;
 }
-
+//generates the HTML template
 function htmlGenerator (team) {
         const cards = team.map(employee => createCard(employee)).join('');
 

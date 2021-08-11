@@ -5,4 +5,4 @@ A command-line application that generates a dynamic roster for a professional so
 
 Video tutorial link:
 
-Link to repository:
+Link to repository: https://github.com/LukeMcM89?tab=repositories
