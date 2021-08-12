@@ -74,22 +74,24 @@ function finishBuildingRoster() {
         console.log("The Roster has been executed and generated! It is located in the dist folder. Thank you!");
 }
 
-//creates the individualized cards
+//Creates the individualized cards
 function createCard (employee) {
         let exclusive = "";
-        console.log (employee.getRole());
+        //console.log (employee.getRole());
         if (employee.getRole() === "Manager") {
-                console.log ("test2");
+                //console.log ("test2");
                 exclusive = "officeNumber;"+employee.getOfficeNumber();
         }   
         else if (employee.getRole() === "Engineer") {
-                console.log ("test3");
+                //console.log ("test3");
                 exclusive = "github;"+employee.getGithub();
         }  
         else if (employee.getRole() === "Intern") {
-                console.log ("test4");
+                //console.log ("test4");
                 exclusive = "school;"+employee.getSchool();
-        }   
+        } 
+          
+        //Generates the Card format to be replicated 
         const card = `<div class="columns mt-5 is-8 is-variable is-centered">
         <div class="column is-4-tablet is-3-desktop">
             <div class="card">
@@ -109,7 +111,7 @@ function createCard (employee) {
         </div>`
             return card;
 }
-//generates the HTML template
+//Generates the general HTML template
 function htmlGenerator (team) {
         const cards = team.map(employee => createCard(employee)).join('');
 
