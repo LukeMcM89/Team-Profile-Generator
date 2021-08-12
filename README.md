@@ -6,3 +6,5 @@ A command-line application that generates a dynamic roster for a professional so
 Video tutorial link:
 
 Link to repository: https://github.com/LukeMcM89?tab=repositories
+
+<img width="1313" alt="team generator" src="https://user-images.githubusercontent.com/80003989/129256998-5274c38a-078f-4dd7-9970-5147bb5f6dfe.png">
