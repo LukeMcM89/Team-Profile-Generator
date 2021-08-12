@@ -104,7 +104,9 @@ function createCard (employee) {
                         </ol>
                     </div>
                 </div>
-            </div>`
+                </div>
+            </div>
+        </div>`
             return card;
 }
 //generates the HTML template
@@ -129,7 +131,7 @@ function htmlGenerator (team) {
             <div class="container">
                 <h3 class="title has-text-centered is-size-4">Software Engineer Team Roster</h3>
                     ${cards}         
-                             
+                </div>         
         </section>
         
         </body>
