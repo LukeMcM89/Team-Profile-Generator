@@ -1,9 +1,9 @@
 const Engineer = require('../lib/engineer');
 
-//Use this from the activity module and modify!
-describe('Engineer', () => {
+//Engineer Test
+describe('Engineer class', () => {
     it('should return the name for an employee', () => {
-      expect(new Engineer("Dwight Schrute", "4", "dwightschrute@gmail.com").getName()).toBe("Dwight Schrute");
+      expect(new Engineer("Dwight Schrute").getName()).toBe("Dwight Schrute");
     });
 })
 

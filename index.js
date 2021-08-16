@@ -96,7 +96,7 @@ function createCard (employee) {
         <div class="column is-4-tablet is-3-desktop">
             <div class="card">
                 <div class="card-content">
-                    <p class="title is-size-5">Manager</p>
+                    <p class="title is-size-5">${employee.getRole()}</p>
                     <div class="content">
                         <ol type="1">
                             <li>Name:${employee.getName()}</li>
