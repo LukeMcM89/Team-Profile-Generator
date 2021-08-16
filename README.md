@@ -1,4 +1,3 @@
-<img width="1322" alt="team_gen_test" src="https://user-images.githubusercontent.com/80003989/129624265-408a0295-9d7f-4555-bd00-b44d06cf9b87.png">
 # Team-Profile-Generator
 
 A command-line application that generates a dynamic roster for a professional software engineering team based on user selection and input. The input data results in a HTML generated webpage that displays summaries for each employee.
