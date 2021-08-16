@@ -80,17 +80,17 @@ function createCard (employee) {
         //console.log (employee.getRole());
         if (employee.getRole() === "Manager") {
                 //console.log ("test2");
-                exclusive = "officeNumber;"+employee.getOfficeNumber();
+                exclusive = "Office_Number:"+employee.getOfficeNumber();
         }   
         else if (employee.getRole() === "Engineer") {
                 //console.log ("test3");
-                exclusive = "github;"+employee.getGithub();
+                exclusive = "GitHub:"+employee.getGithub();
         }  
         else if (employee.getRole() === "Intern") {
                 //console.log ("test4");
-                exclusive = "school;"+employee.getSchool();
+                exclusive = "School:"+employee.getSchool();
         } 
-          
+
         //Generates the Card format to be replicated 
         const card = `<div class="columns mt-5 is-8 is-variable is-centered">
         <div class="column is-4-tablet is-3-desktop">
