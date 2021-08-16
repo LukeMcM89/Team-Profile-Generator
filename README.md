@@ -3,7 +3,7 @@
 A command-line application that generates a dynamic roster for a professional software engineering team based on user selection and input. The input data results in a HTML generated webpage that displays summaries for each employee.
 
 
-Video tutorial link:
+Video tutorial link: https://drive.google.com/file/d/11vfLaZvWaRoSA3qLwBUE4jwvCl3VfAiL/view?usp=sharing
 
 Link to repository: https://github.com/LukeMcM89?tab=repositories
 
