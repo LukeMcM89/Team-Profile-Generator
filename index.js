@@ -101,7 +101,7 @@ function createCard (employee) {
                         <ol type="1">
                             <li>Name:${employee.getName()}</li>
                             <li>ID:${employee.getId()}</li>
-                            <li>Email:${employee.getEmail()}</li>
+                            <li><a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
                             <li>${exclusive}</li>
                         </ol>
                     </div>
