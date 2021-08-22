@@ -84,7 +84,7 @@ function createCard (employee) {
         }   
         else if (employee.getRole() === "Engineer") {
                 //console.log ("test3");
-                exclusive = "GitHub:"+employee.getGithub();
+                exclusive = `Github:<a href="${employee.getGithub()}">${employee.getGithub()}</a>`;
         }  
         else if (employee.getRole() === "Intern") {
                 //console.log ("test4");
